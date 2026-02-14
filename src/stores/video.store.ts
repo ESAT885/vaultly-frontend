@@ -47,6 +47,7 @@ export const useVideoStore = defineStore("video", {
 
       } finally {
         this.uploading = false
+       await this.fetchVideos()
       }
     },
     async fetchVideos() {
@@ -57,7 +58,7 @@ export const useVideoStore = defineStore("video", {
         const res = await videoService.videoService.getVideos()
   
         this.videos = res.data.data ?? res.data
-
+console.log(res.data)
       } catch (err: any) {
         this.videoserror = err.message
       } finally {
