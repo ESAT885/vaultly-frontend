@@ -9,7 +9,10 @@ function handleUpload(e: Event) {
   if (!input.files?.length) return
   if (input.files[0] == null)
     return
-  videoStore.uploadVideo(input.files[0])
+  videoStore.uploadVideo(input.files[0]) .finally(() => {
+      // Upload işlemi tamamlandıktan sonra inputu sıfırla
+      input.value = ''
+    })
 }
 
 
@@ -73,7 +76,7 @@ onMounted(() => {
             {{ new Date(video.createdAt).toLocaleDateString() }}
           </p> -->
 
-          <RouterLink :to="`/video/${video.id}`" class="btn btn-primary btn-sm mt-4">
+          <RouterLink :to="`/videos/${video.id}`" class="btn btn-primary btn-sm mt-4">
             İzle
           </RouterLink>
 

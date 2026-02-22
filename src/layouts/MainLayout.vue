@@ -55,6 +55,7 @@ function logout() {
         <li><router-link to="/">Dashboard</router-link></li>
        
         <li><router-link to="/videos">Vidolar</router-link></li>
+        <li><router-link to="/files">Dosyalar</router-link></li>
       </ul>
 
     </div>

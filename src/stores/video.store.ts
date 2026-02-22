@@ -22,11 +22,11 @@ export const useVideoStore = defineStore("video", {
 
         // 1️⃣ INIT
         const initRes = await videoService.videoService.init(file.name)
-   
-        const videoId = initRes?.data?.id??""
-  
-     
-        this.currentVideoId = videoId??"";
+
+        const videoId = initRes?.data?.id ?? ""
+
+
+        this.currentVideoId = videoId ?? "";
 
         // 2️⃣ CHUNK UPLOAD
         const chunkSize = 5 * 1024 * 1024 // 5MB
@@ -47,7 +47,7 @@ export const useVideoStore = defineStore("video", {
 
       } finally {
         this.uploading = false
-       await this.fetchVideos()
+        await this.fetchVideos()
       }
     },
     async fetchVideos() {
@@ -56,9 +56,9 @@ export const useVideoStore = defineStore("video", {
         this.videoserror = null
 
         const res = await videoService.videoService.getVideos()
-  
+
         this.videos = res.data.data ?? res.data
-console.log(res.data)
+
       } catch (err: any) {
         this.videoserror = err.message
       } finally {
