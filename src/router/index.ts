@@ -12,7 +12,7 @@ const router = createRouter({
   routes: [
     { path: "/login", component: LoginView },
     { path: "/", component: DashboardView, meta: { requiresAuth: true } },
-    { path: "/landing", component: LandingPage, meta: { requiresAuth: true } },
+    { path: "/landing", component: LandingPage },
 
     { path: "/videos", component: VideoPages, meta: { requiresAuth: true } },
     { path: "/videos/:videoId", component: VideoPagesDetail, meta: { requiresAuth: true } },
