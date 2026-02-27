@@ -76,11 +76,11 @@ export const useFileStore = defineStore("files", {
         this.downloading = true
 
         // 1️⃣ JWT ile signed link al
-        
-    const res = await fileService.fileService.getDownloadLink(storedFileId) 
 
-        const dataurl =res.data.data ?? res.data
+        const res = await fileService.fileService.getDownloadLink(storedFileId)
 
+        const dataurl = res.data.data ?? res.data
+        if (!dataurl.url) throw new Error("Download link not found")
         // 2️⃣ Browser streaming ile indir
         window.location.href = dataurl.url
 

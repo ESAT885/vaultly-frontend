@@ -17,6 +17,21 @@ const router = createRouter({
     { path: "/videos", component: VideoPages, meta: { requiresAuth: true } },
     { path: "/videos/:videoId", component: VideoPagesDetail, meta: { requiresAuth: true } },
     { path: "/files", component: UploadFileView, meta: { requiresAuth: true } },
+    {
+        path: '/machines',
+        name: 'machine-list',
+        component: () => import('../modules/machine/views/MachineListView.vue')
+      },
+      {
+        path: '/machines/create',
+        name: 'machine-create',
+        component: () => import('../modules/machine/views/MachineCreateView.vue')
+      },
+      {
+        path: '/machines/:id/edit',
+        name: 'machine-edit',
+        component: () => import('../modules/machine/views/MachineEditView.vue')
+      },
   ],
 })
 router.beforeEach((to, _, next) => {
